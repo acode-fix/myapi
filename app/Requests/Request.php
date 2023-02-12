@@ -44,8 +44,10 @@ class Request{
                  else 
                   $body_ =  file_get_contents('php://input');
                        
-                         if(!empty($body))
-                        $body =   json_decode($body_, true);
+                         if(!empty($body_)){
+                            $body =   json_decode($body_, true);
+                         }
+                       
                           
 
                            if($_FILES){

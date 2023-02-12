@@ -22,6 +22,9 @@ class  userController    extends BaseController  {
         static function store(){
          
                    $request  =   Request::handle(); 
+               
+                 // print_r($request);
+                 // return;   
             
                        $validation = [
                      'surname'=>'required|string',
@@ -134,8 +137,8 @@ static function uploadImage($id){
            
 
       $validation = [
-        'surname'=>'required', 
-            'passport'=>'required|file|filesize:409600'
+
+            'passport'=>'required|file|filesize:204800'
               ];
 
 
