@@ -1,0 +1,21 @@
+{
+    "name": "dell/myapi",
+    "description": "api mock data",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Src\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "acodefix"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "2.4",
+        "bramus/router": "~1.6",
+        "icanboogie/inflector": "^2.2"
+    }
+}
