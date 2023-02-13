@@ -4,12 +4,17 @@
  use App\Controllers\userController;
  use App\Traits\Response;
 
- header("Access-Control-Allow-Origin: *");
- header("Content-Type: application/json; charset=UTF-8");
- header("Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE");
- header("Access-Control-Max-Age: 3600");
- header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
- header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+//  header("Access-Control-Allow-Origin: *");
+//  header("Content-Type: application/json; charset=UTF-8");
+//  header("Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE");
+//  header("Access-Control-Max-Age: 3600");
+//  header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+ header("Access-Control-Allow-Origin: * ");
+header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE ");
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
 
 
 // Create Router instance
@@ -21,6 +26,7 @@ $router->set404(function() {
   
    // header('HTTP/1.1 404 Not Found');
     header('Content-Type: application/json');
+    
     $json =[];
     $json['status'] = "error";
     $json['status_text'] = "request not found";
