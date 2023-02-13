@@ -8,10 +8,20 @@ class  Model {
 
        protected static $query;
        protected static $modelName; 
+       
+
       function __construct()
       {
                  
       }
+
+
+      protected  function   setPasswordHash($name){
+
+          return password_hash($name,PASSWORD_DEFAULT);
+
+      }
+
 
          function Query($sql){
               static::$query = $sql;

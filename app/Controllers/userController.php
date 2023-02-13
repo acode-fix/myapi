@@ -148,12 +148,12 @@ $validateError = Validator::handle($validation,$request);
         return self::json($validateError);
        }
         
-            $fileName =  Request::getFileName('passport');
+          $fileName =  Request::getFileName('passport');
             $ext =  Request::getFileExtension($fileName);
               $storeFileName =  Request::getHashNameForFile($fileName).'.'.$ext;
                $tmp_path = Request::getFilTempPath('passport');
                 if(!Request::moveUploadedFile(getenv('UPLOAD_PATH'),$tmp_path,$storeFileName)) 
-                  return self::json(['passport'=>'file is not upload']);
+                  return self::json(['status'=>'error','passport'=>'file is not upload']);
                   $data = ['passport'=> getenv('UPLOAD_URL').'/'.$storeFileName];
               
 $user =  User::updateWithManyClauses($data,['id'=>$id]);

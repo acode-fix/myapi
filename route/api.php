@@ -32,26 +32,26 @@ $router->get('/about', function() {
     echo 'About Page Contents';
 });
 
-$router->get('/user/{id}','userController@getList');
+//$router->get('/api/v1/user/{id}','userController@getList');
 
-$router->get('/user', function() {
+$router->get('/api/v1/user', function() {
       echo userController::getList();
 });
 
-$router->post('/user', function() {
+$router->post('/api/v1/user', function() {
      echo userController::store();
 });
 
-$router->put('/user/{id}', function($id) {
+$router->put('/api/v1/user/{id}', function($id) {
     echo userController::update($id);
 });
 
 
-$router->post('/user/{id}/upload', function($id) {
+$router->post('/api/v1/user/{id}/upload', function($id) {
     echo userController::uploadImage($id);
 });
 
-$router->delete('/user/{id}', function($id) {
+$router->delete('/api/v1/user/{id}', function($id) {
     echo userController::destroy($id);
 });
 

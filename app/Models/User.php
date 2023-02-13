@@ -8,10 +8,31 @@ use App\Models\Model;
 class  User  extends Model  {
 
 
-      function __construct()
+      function __construct( )
       {
 
+        
+           
       }
+
+
+        protected function setPassword($name)
+        {
+
+          return password_hash($name,PASSWORD_DEFAULT);
+        }
+
+
+          // protected checkAttrbutes($attributes){
+
+          //   $definedCol = [];
+          //   foreach( $attributes  as $column ){
+               
+
+
+          //   }
+
+          // }
 
 
 
@@ -24,16 +45,23 @@ class  User  extends Model  {
 
        }
 
-       static function  store($column=[]){
+       static function  store($columns=[]){
+       
+            // $definedCol = [];
+            // foreach( $columns  as $column ){
+           
 
-        $result =  Model::create(__CLASS__,$column);
+            // }
+              
+        
+        $result =  Model::create(__CLASS__,$columns);
       return $result;
 
    }
 
 
    static function updateWithManyClauses($column=[],$clause=[]){
-
+ 
 $result =  Model::updateWithAndClause(__CLASS__,$column,$clause);
 return $result;
 

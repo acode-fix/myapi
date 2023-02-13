@@ -22,11 +22,11 @@ class Request{
                         if($getQueryStrArr)
                           $request[] = $getQueryStrArr; 
 
-                          if($_POST){
+                          if(!empty($_POST)){
                             
                             $post = $_POST;
                           }
-                          if($_GET){
+                          if(!empty($_GET)){
                             $get = $_GET;
                           }
                             $PUT = [];
@@ -50,7 +50,8 @@ class Request{
                        
                           
 
-                           if($_FILES){
+                           if(!empty($_FILES))
+                           {
                             foreach($_FILES as $key=>$val)
                               $filekey = $key;
                              $file[$filekey] = $_FILES[$filekey]; 
