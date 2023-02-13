@@ -35,7 +35,7 @@ class  userController    extends BaseController  {
              $validateError = Validator::handle($validation,$request);    
                     // self::json($validate);
                         if($validateError){
-                        return  self::json($validateError);
+                        return  self::json($validateError,422);
                         }
              //store 
                
@@ -46,6 +46,7 @@ class  userController    extends BaseController  {
                       $res['status'] = "success";
                       $res['message'] = 'data stored successfully';
                       $res['data'] = $user;
+                      return self::json($res,201);
 
                      }else {
                     
@@ -53,10 +54,11 @@ class  userController    extends BaseController  {
                       $res['status'] = "error";
                       $res['message'] = 'data not stored successfully';
                       $res['data'] = [];
+                      return self::json($res,422);
 
                      }
 
-                     return self::json($res);
+                    
         }
 
 
@@ -74,13 +76,13 @@ class  userController    extends BaseController  {
                   $res['data'] = $user;
                   $res['message'] = 'fetched successfully';
 
-                  return self::json($res);
+                  return self::json($res,200);
 
               }else{
                   $res['status'] = "success";
                   $res['message'] = 'data fetched successfully';
                   $res['data'] = [];                
-                   return self::json($res);
+                   return self::json($res,200);
               }
 
         }
@@ -100,7 +102,7 @@ class  userController    extends BaseController  {
     $validateError = Validator::handle($validation,$request);    
            // self::json($validate);
                if($validateError){
-               return  self::json($validateError);
+               return  self::json($validateError,422);
                }
     //store 
           // print_r($request);
@@ -114,6 +116,8 @@ class  userController    extends BaseController  {
              $res['message'] = 'data updated successfully';
              $res['data'] = $user;
 
+             return self::json($res,200);
+
             }else {
            
              $res = [];
@@ -121,9 +125,11 @@ class  userController    extends BaseController  {
              $res['message'] = 'data not updated successfully';
              $res['data'] = [];
 
+             return self::json($res,422);
+
             }
 
-            return self::json($res);
+         
 }
 
 static function uploadImage($id){
@@ -164,6 +170,8 @@ $user =  User::updateWithManyClauses($data,['id'=>$id]);
      $res['message'] = 'data updated successfully';
      $res['data'] = $user;
 
+     return self::json($res,200);
+
     }else {
    
      $res = [];
@@ -171,9 +179,11 @@ $user =  User::updateWithManyClauses($data,['id'=>$id]);
      $res['message'] = 'data not updated successfully';
      $res['data'] = [];
 
+     return self::json($res,422);
+
     }
 
-    return self::json($res);
+   // return self::json($res);
 }
 
 
@@ -201,7 +211,7 @@ $user =  User::softDeleteWithClauses(['id'=>$id]);
 
     }
 
-    return self::json($res);
+    return self::json($res,204);
 }
 
 

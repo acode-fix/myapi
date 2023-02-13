@@ -8,8 +8,9 @@ Trait Response {
        return (new static)->$method(...$parameters);
    }
 
-       function json($arg){
-          return  json_encode($arg);
+       function json($arg, $httpCode=200){
+        http_response_code($httpCode);  
+           echo json_encode($arg);
        }
 
 
