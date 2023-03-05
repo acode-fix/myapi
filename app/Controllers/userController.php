@@ -40,7 +40,7 @@ class  userController    extends BaseController  {
                           $res['status'] = "error";
                           $res['message'] = 'unprocessed entity';
                           $res['data'] = $validateError;
-                        return  self::json($res,422);
+                        return  self::json($res,200);
                         }
              //store 
                
@@ -59,7 +59,7 @@ class  userController    extends BaseController  {
                       $res['status'] = "error";
                       $res['message'] = 'data not stored successfully';
                       $res['data'] = [];
-                      return self::json($res,422);
+                      return self::json($res,200);
 
                      }
 
@@ -111,7 +111,7 @@ class  userController    extends BaseController  {
                 $res['status'] = "error";
                 $res['message'] = 'unprocessed entity';
                 $res['data'] = $validateError;
-              return  self::json($res,422);
+              return  self::json($res,200);
 
                }
     //store 
@@ -135,7 +135,7 @@ class  userController    extends BaseController  {
              $res['message'] = 'data not updated successfully';
              $res['data'] = [];
 
-             return self::json($res,422);
+             return self::json($res,200);
 
             }
 
@@ -165,7 +165,7 @@ $validateError = Validator::handle($validation,$request);
         $res['status'] = "error";
         $res['message'] = 'unprocessed entity';
         $res['data'] = $validateError;
-      return  self::json($res,422);
+      return  self::json($res,200);
        
        }
         
@@ -194,7 +194,7 @@ $user =  User::updateWithManyClauses($data,['id'=>$id]);
      $res['message'] = 'data not updated successfully';
      $res['data'] = [];
 
-     return self::json($res,422);
+     return self::json($res,200);
 
     }
 
