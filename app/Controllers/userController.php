@@ -35,7 +35,12 @@ class  userController    extends BaseController  {
              $validateError = Validator::handle($validation,$request);    
                     // self::json($validate);
                         if($validateError){
-                        return  self::json($validateError,422);
+
+                          $res = [];
+                          $res['status'] = "error";
+                          $res['message'] = 'unprocessed entity';
+                          $res['data'] = $validateError;
+                        return  self::json($res,422);
                         }
              //store 
                
@@ -102,7 +107,12 @@ class  userController    extends BaseController  {
     $validateError = Validator::handle($validation,$request);    
            // self::json($validate);
                if($validateError){
-               return  self::json($validateError,422);
+                $res = [];
+                $res['status'] = "error";
+                $res['message'] = 'unprocessed entity';
+                $res['data'] = $validateError;
+              return  self::json($res,422);
+
                }
     //store 
           // print_r($request);
@@ -151,7 +161,12 @@ static function uploadImage($id){
 $validateError = Validator::handle($validation,$request);    
    // self::json($validate);
        if($validateError){
-        return self::json($validateError);
+        $res = [];
+        $res['status'] = "error";
+        $res['message'] = 'unprocessed entity';
+        $res['data'] = $validateError;
+      return  self::json($res,422);
+       
        }
         
           $fileName =  Request::getFileName('passport');
